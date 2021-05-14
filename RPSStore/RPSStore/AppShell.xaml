@@ -78,12 +78,25 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="About" Icon="icon_about.png">
+    <FlyoutItem Title="About Us" Icon="icon_about.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Browse" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    <FlyoutItem Title="Your Orders" Icon="orders.jpg">
+        <ShellContent Route="OrderPage" ContentTemplate="{DataTemplate local:OrderPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Buy Again" Icon="buyagain.jpg">
+        <ShellContent Route="BuyAgainPage" ContentTemplate="{DataTemplate local:BuyAgainPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Wish List" Icon="wishlist.jpg">
+        <ShellContent Route="WishListPage" ContentTemplate="{DataTemplate local:WishListPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Shop By Category" Icon="category.jpg">
+        <ShellContent Route="CategoryPage" ContentTemplate="{DataTemplate local:CategoryPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="RPS Pay" Icon="pay.jpg">
+        <ShellContent Route="PayPage" ContentTemplate="{DataTemplate local:PayPage}" />
+    </FlyoutItem>
+   
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
@@ -133,4 +146,18 @@
 
     -->
 
+    <FlyoutItem Route="programsandfeatures"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Programs And Features"
+             Route="progandfeat"
+             Icon="icon.png">
+            <ShellContent Route="AlexaShopping" Title="About"  ContentTemplate="{DataTemplate local:AlexaShoppingPage}" />
+            <ShellContent Route="RPSBusiness" Title="Contact"  ContentTemplate="{DataTemplate local:RPSBusinessPage}" />
+            <ShellContent Route="RPSFresh" Title="Maps"  ContentTemplate="{DataTemplate local:RPSFreshPage}" />
+            
+        </Tab>
+        <ShellContent Route="HomePage" Title="Home Page"  ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Route="Orders" Title="Orders"  ContentTemplate="{DataTemplate local:OrderPage}" />
+        <ShellContent Route="Cart" Title="Cart"  ContentTemplate="{DataTemplate local:CartPage}" />
+    </FlyoutItem>
 </Shell>

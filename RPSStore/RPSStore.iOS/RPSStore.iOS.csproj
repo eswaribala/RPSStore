@@ -142,4 +142,19 @@
       <Name>RPSStore</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orders.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pay.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\category.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\buyagain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wishlist.jpg" />
+  </ItemGroup>
 </Project>
