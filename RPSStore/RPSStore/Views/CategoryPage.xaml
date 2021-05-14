@@ -1,16 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:RPSStore.ViewModels"
-             x:Class="RPSStore.Views.CategoryPage" Title="{Binding Title}">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:RPSStore.ViewModels" xmlns:controls="clr-namespace:RPSStore.Controls"
+             x:Class="RPSStore.Views.CategoryPage" 
+             xmlns:data="clr-namespace:RPSStore.Data"
+              xmlns:views="clr-namespace:RPSStore.Views"
+              class="RPSStore.Views.CategoryDetailPage"
+             Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:CategoryViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" 
+                                        Value="#546DFE" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
 
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <Shell.SearchHandler>
+        <controls:CategorySearchHandler Placeholder="Enter search term"
+                                      ShowsResults="true"
+                                      ItemTemplate="{StaticResource CategoryDataSearchTemplate}"
+                                      Categories="{x:Static data:CategoryData.Categories}"
+                                      SelectedItemNavigationTarget="{x:Type views:CategoryDetailPage}" />
+    </Shell.SearchHandler>
+    <CollectionView Margin="20"
+                    ItemsSource="{x:Static data:CategoryData.Categories}"
+                    ItemTemplate="{StaticResource CategoryDataTemplate}"
+                    SelectionMode="Single"
+                    SelectionChanged="OnCollectionViewSelectionChanged" />
+
 </ContentPage>
