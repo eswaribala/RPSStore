@@ -151,13 +151,13 @@
         <Tab Title="Programs And Features"
              Route="progandfeat"
              Icon="icon.png">
-            <ShellContent Route="AlexaShopping" Title="About"  ContentTemplate="{DataTemplate local:AlexaShoppingPage}" />
-            <ShellContent Route="RPSBusiness" Title="Contact"  ContentTemplate="{DataTemplate local:RPSBusinessPage}" />
-            <ShellContent Route="RPSFresh" Title="Maps"  ContentTemplate="{DataTemplate local:RPSFreshPage}" />
+            <ShellContent Route="AlexaShopping" Title="Alexa Shopping"  ContentTemplate="{DataTemplate local:AlexaShoppingPage}" />
+            <ShellContent Route="RPSBusiness" Title="RPS Business"  ContentTemplate="{DataTemplate local:RPSBusinessPage}" />
+            <ShellContent Route="RPSFresh" Title="RPS Fresh"  ContentTemplate="{DataTemplate local:RPSFreshPage}" />
             
         </Tab>
-        <ShellContent Route="HomePage" Title="Home Page"  ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Route="Orders" Title="Orders"  ContentTemplate="{DataTemplate local:OrderPage}" />
-        <ShellContent Route="Cart" Title="Cart"  ContentTemplate="{DataTemplate local:CartPage}" />
+        <ShellContent Icon="icon_about.png" Route="HomePage" Title="Home Page"  ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Icon="orders.jpg" Route="Orders" Title="Orders"  ContentTemplate="{DataTemplate local:OrderPage}" />
+        <ShellContent Icon="category.jpg" Route="Cart" Title="Cart"  ContentTemplate="{DataTemplate local:CartPage}" />
     </FlyoutItem>
 </Shell>
