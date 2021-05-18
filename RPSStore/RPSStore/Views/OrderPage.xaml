@@ -6,11 +6,14 @@
         <viewmodels:OrderViewModel />
     </ContentPage.BindingContext>
 
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,40,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="listView" ItemSelected="OnItemSelected" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

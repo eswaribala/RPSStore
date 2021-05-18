@@ -5,13 +5,15 @@ using System.Text;
 
 namespace RPSStore.ViewModels
 {
-    public class ProductViewModel
+    public class ProductViewModel:BaseViewModel
     {
         public List<Product> Products { get; set; }
+        public List<String> Names { get; set; }
         public ProductViewModel()
         {
             CreateProductCollection();
         }
+
 
         public void CreateProductCollection()
         {

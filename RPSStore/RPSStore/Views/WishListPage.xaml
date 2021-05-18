@@ -8,9 +8,11 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image x:Name="image" Source="oxygenmeter.jpg"
+                  WidthRequest="100" HeightRequest="100"  VerticalOptions="CenterAndExpand" />
+
+            <Button x:Name="startButton" Text="Start Scaling" Clicked="StartAnimation_Clicked"></Button>
+            <Button x:Name="cancelButton" Text="Cancel Scaling" Clicked="CancelAnimation_Clicked" IsEnabled="False"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
