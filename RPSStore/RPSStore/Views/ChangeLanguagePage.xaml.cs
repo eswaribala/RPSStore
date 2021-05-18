@@ -27,7 +27,8 @@ namespace RPSStore.Views
                 var language = CultureInfo.GetCultures(CultureTypes.NeutralCultures).ToList().First(element => element.EnglishName.Contains(picker.SelectedItem.ToString())); ;
                 Thread.CurrentThread.CurrentUICulture = language;
                 AppResources.Culture = language;
-                App.Current.MainPage = new NavigationPage(new BuyAgainPage());
+                this.Navigation.PushAsync(new BuyAgainPage());
+                //App.Current.MainPage = new NavigationPage(new BuyAgainPage());
             }
         }
     
