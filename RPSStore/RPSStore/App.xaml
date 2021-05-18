@@ -36,7 +36,9 @@
                        Source="{Binding ImageUrl}" 
                        Aspect="AspectFill"
                        HeightRequest="60" 
-                       WidthRequest="60" />
+                       WidthRequest="60">
+                   
+                </Image>
                 <Label Grid.Column="1" 
                        Text="{Binding Name}" 
                        FontAttributes="Bold" />

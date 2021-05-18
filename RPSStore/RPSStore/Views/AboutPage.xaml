@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RPSStore.Views.AboutPage"
+              xmlns:views="clr-namespace:RPSStore.Views"
              xmlns:vm="clr-namespace:RPSStore.ViewModels"
              Title="{Binding Title}">
     
@@ -15,5 +16,23 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    
+    <TableView Intent="Menu">
+        <TableRoot>
+            <TableSection>
+                
+               
+                <TextCell Text="Latest Arrival"
+                          Detail="Set multiple properties"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type views:LatestArrival}" />
+                <!--<TextCell Text="Embedded Expander demo"
+                          Detail="Expander in an Expander"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type views:EmbeddedExpanderPage}" />
+                -->
+            </TableSection>
+        </TableRoot>
+    </TableView>
+
+
 </ContentPage>
