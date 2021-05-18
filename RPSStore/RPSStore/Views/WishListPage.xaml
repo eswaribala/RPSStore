@@ -12,6 +12,8 @@
                   WidthRequest="100" HeightRequest="100"  VerticalOptions="CenterAndExpand" />
 
             <Button x:Name="startButton" Text="Start Scaling" Clicked="StartAnimation_Clicked"></Button>
+            <Button x:Name="rotateButton" Text="Start Rotating" Clicked="RotateAnimation_Clicked"></Button>
+            
             <Button x:Name="cancelButton" Text="Cancel Scaling" Clicked="CancelAnimation_Clicked" IsEnabled="False"></Button>
         </StackLayout>
     </ContentPage.Content>
