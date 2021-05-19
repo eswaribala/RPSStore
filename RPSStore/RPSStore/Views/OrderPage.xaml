@@ -22,6 +22,7 @@
                 <Label Text="Xamarin MCQ"
                FontSize="Large"
                HorizontalOptions="Center" />
+                <Entry x:Name="count" Text="Item Count"></Entry>
                 <Button Text="Question 1"
                 Clicked="OnQuestion1ButtonClicked" />
                 <Label x:Name="question1ResultLabel" />

@@ -37,7 +37,9 @@ namespace RPSStore.Views
 
         private async void OnQuestion1ButtonClicked(object sender, EventArgs e)
         {
-            string result = await DisplayPromptAsync("Question 1", "What's your name?", initialValue: string.Empty);
+            // await DisplayAlert("Data Received", count.Text, "Check");
+             string result = await DisplayPromptAsync("Question 1", "Is it Correct? "+count.Text, initialValue: string.Empty);
+           // question1ResultLabel.Text = count.Text;
             if (!string.IsNullOrWhiteSpace(result))
             {
                 question1ResultLabel.Text = $"Hello {result}.";
