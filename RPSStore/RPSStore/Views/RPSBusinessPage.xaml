@@ -29,7 +29,7 @@
                      CheckedChanged="OnGenderRadioButtonCheckedChanged" />
             <Label Text="Modes of Contact" StyleClass="ContactStyle"/>
             <StackLayout>
-                <Grid Margin="20,35,20,20">
+                <Grid Margin="10,10,10,10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
@@ -45,28 +45,28 @@
                    
                     <Label Text="Phone No:" HorizontalOptions="Start"
                       Grid.Column="0" Grid.Row="0" Padding="2,2,2,2" StyleClass="ContactStyle" />
-                    <CheckBox x:Name="phoneNoCheckBox"
-                  Grid.Column="0" Grid.Row="0" HorizontalOptions="End"
+                    <CheckBox x:Name="phoneNoCheckBox" 
+                  Grid.Column="0" Grid.Row="0" HorizontalOptions="End"  CheckedChanged="phoneNoCheckBox_CheckedChanged"
                   />
-                    <Label Text="Email:"
+                    <Label Text="Email:" 
                HorizontalOptions="Start"  Grid.Column="1" Grid.Row="0"  StyleClass="ContactStyle"/>
                     <CheckBox x:Name="emailCheckBox"
                   Grid.Column="1" Grid.Row="0"  HorizontalOptions="End" 
-                  VerticalOptions="Center" />
+                  VerticalOptions="Center" CheckedChanged="emailCheckBox_CheckedChanged" />
                     <Label Text="Whats App:"
                HorizontalOptions="Start"  Grid.Column="0" Grid.Row="1" StyleClass="ContactStyle" />
                     <CheckBox x:Name="WhatsAppCheckBox"
                   Grid.Column="0" Grid.Row="1"  HorizontalOptions="End"
-                  VerticalOptions="Center" />
+                  VerticalOptions="Center" CheckedChanged="WhatsAppCheckBox_CheckedChanged" />
                     <Label Text="Facebook:"
                HorizontalOptions="Start"  Grid.Column="1" Grid.Row="1" StyleClass="ContactStyle" />
                     <CheckBox x:Name="facebookCheckBox"
                   Grid.Column="1" Grid.Row="1"  HorizontalOptions="End"
-                  VerticalOptions="Center" />
+                  VerticalOptions="Center" CheckedChanged="facebookCheckBox_CheckedChanged" />
 
                 </Grid>
             </StackLayout>
-
+            <Button Text="Add Contact" Clicked="Contact_Clicked" HorizontalOptions="Center" BackgroundColor="Green" TextColor="White"></Button> 
 
         </StackLayout>
     </ContentPage.Content>
