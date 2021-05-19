@@ -8,7 +8,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="PhoneNo" Placeholder="Enter Phone Number"/>
+            <Entry x:Name="PhoneNo" Placeholder="999-999-9999"/>
             <Button Text="Call" Clicked="Call_Clicked"/>
         </StackLayout>
     </ContentPage.Content>

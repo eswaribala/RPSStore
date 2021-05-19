@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -19,10 +20,24 @@ namespace RPSStore.Views
 
         private async void Call_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(PhoneNo.Text))
-            {
-                await Call(PhoneNo.Text);
+            bool status = true;
+            string sPattern = "^\\d{3}-\\d{3}-\\d{4}$";
+            if (!string.IsNullOrEmpty(PhoneNo.Text)) {
+                status = false;
+                if (Regex.IsMatch(PhoneNo.Text, sPattern))
+                {
+
+                    status = false;
+                    await Call(PhoneNo.Text);
+                }
+                
             }
+
+            if (status)
+            {
+                await this.Navigation.PopAsync();
+            }
+
         }
 
         public async Task Call(string number)
