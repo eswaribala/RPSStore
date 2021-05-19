@@ -13,7 +13,8 @@
     </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listView" ItemSelected="OnItemSelected" />
+            <Entry Placeholder="Mobile Number" />
+            <Button Text="Store" BackgroundColor="Black" TextColor="White" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

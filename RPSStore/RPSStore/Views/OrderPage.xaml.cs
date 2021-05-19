@@ -18,25 +18,21 @@ namespace RPSStore.Views
         public OrderPage()
         {
             InitializeComponent();
-            SetupData();
-            listView.ItemsSource = products;
-        }
-        
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (listView.SelectedItem != null)
-            {
-                var detailPage = new OrderDetailPage();
-                detailPage.BindingContext = e.SelectedItem as Product;
-                listView.SelectedItem = null;
-                await Navigation.PushModalAsync(detailPage);
-            }
+            
         }
 
-		void SetupData()
-		{
-            products = new ProductViewModel().Products;
-			
-		}
-	}
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            bool status = await DisplayAlert("Notification", "Do you want store this Number ?", "Yes", "No");
+            if (status)
+            {
+                await this.Navigation.PushAsync(new CategoryPage());
+            }
+            else
+            {
+                await this.Navigation.PopAsync();
+            }
+
+        }
+    }
 }
