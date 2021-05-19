@@ -8,6 +8,21 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">SeaGreen</Color>
+            <Style x:Key="CustomLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BackgroundColor" Value="Ivory"/>
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="CustomButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="LightGray"/>
+                <Setter Property="WidthRequest" Value="180"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="CornerRadius" Value="15"/>
+            </Style>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="white"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">

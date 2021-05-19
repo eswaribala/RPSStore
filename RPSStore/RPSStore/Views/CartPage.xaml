@@ -3,10 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RPSStore.Views.CartPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="100" VerticalOptions="CenterAndExpand">
+            <StackLayout Padding="10">
+                <Label Text="Welcome to the GeoMapUnion test." 
+                       HorizontalOptions="Center" FontSize="Large" TextColor="Brown"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center">
+                <Button Text="Get your location" Clicked="GetLocation_Clicked" 
+                        Style="{StaticResource CustomButton}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="60">
+                <Label Text="Latitude" x:Name="YourLocationLatitude" Style="{StaticResource CustomLabel}"/>
+                <Label Text="Longitude" x:Name="YourLocationLongitude" Style="{StaticResource CustomLabel}"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center">
+                <Button Text="Go To Map" Clicked="GoToMap_Clicked" Style="{StaticResource CustomButton}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
