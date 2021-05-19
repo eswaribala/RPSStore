@@ -13,8 +13,22 @@
     </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Mobile Number" />
-            <Button Text="Store" BackgroundColor="Black" TextColor="White" Clicked="Button_Clicked"></Button>
+            <StackLayout>
+                <Entry Placeholder="Mobile Number" />
+                <Button Text="Store" BackgroundColor="Black" TextColor="White" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+
+            <StackLayout Margin="20,35,20,20">
+                <Label Text="Xamarin MCQ"
+               FontSize="Large"
+               HorizontalOptions="Center" />
+                <Button Text="Question 1"
+                Clicked="OnQuestion1ButtonClicked" />
+                <Label x:Name="question1ResultLabel" />
+                <Button Text="Question 2"
+                Clicked="OnQuestion2ButtonClicked" />
+                <Label x:Name="question2ResultLabel" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
