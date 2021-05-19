@@ -4,9 +4,62 @@
              x:Class="RPSStore.Views.RPSBusinessPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="FirstName" Placeholder="First Name" VerticalOptions="Center"></Entry>
+            <Entry x:Name="LastName" Placeholder="Last Name" VerticalOptions="Center"></Entry>
+            <Label Text="Select Gender" />
+            <RadioButton Content="Female"
+                     GroupName="gender"
+                     TextColor="DeepPink"
+                     CheckedChanged="OnGenderRadioButtonCheckedChanged" />
+            <RadioButton Content="Male"
+                     GroupName="gender"
+                     TextColor="Red"
+                     CheckedChanged="OnGenderRadioButtonCheckedChanged" />
+            <RadioButton Content="Transgender"
+                     GroupName="gender"
+                     TextColor="Blue"
+                     CheckedChanged="OnGenderRadioButtonCheckedChanged" />
+            <Label Text="Modes of Contact"/>
+            <StackLayout>
+                <Grid Margin="20,35,20,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <BoxView BackgroundColor="Cornsilk" Grid.Row="0" Grid.Column="0"></BoxView>
+                    <BoxView BackgroundColor="Bisque" Grid.Row="0" Grid.Column="1"></BoxView>
+                    <BoxView BackgroundColor="Honeydew" Grid.Row="1" Grid.Column="0"></BoxView>
+                    <BoxView BackgroundColor="BurlyWood" Grid.Row="1" Grid.Column="1"></BoxView>
+                   
+                    <Label Text="Phone No:" 
+                      Grid.Column="0" Grid.Row="0" Padding="2,2,2,2" />
+                    <CheckBox x:Name="phoneNoCheckBox"
+                  Grid.Column="0" Grid.Row="0"
+                  Margin="80,0,0,0"/>
+                    <Label Text="Email:"
+               VerticalOptions="Center"  Grid.Column="1" Grid.Row="0" />
+                    <CheckBox x:Name="emailCheckBox"
+                  Grid.Column="1" Grid.Row="0" Margin="80,0,0,0"
+                  VerticalOptions="Center" />
+                    <Label Text="Whats App:"
+               VerticalOptions="Center"  Grid.Column="0" Grid.Row="1" />
+                    <CheckBox x:Name="WhatsAppCheckBox"
+                  Grid.Column="0" Grid.Row="1" Margin="80,0,0,0"
+                  VerticalOptions="Center" />
+                    <Label Text="Facebook:"
+               VerticalOptions="Center"  Grid.Column="1" Grid.Row="1" Margin="80,0,0,0" />
+                    <CheckBox x:Name="facebookCheckBox"
+                  Grid.Column="1" Grid.Row="1"
+                  VerticalOptions="Center" />
+
+                </Grid>
+            </StackLayout>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

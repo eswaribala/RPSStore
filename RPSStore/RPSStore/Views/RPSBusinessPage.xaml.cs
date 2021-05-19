@@ -16,5 +16,10 @@ namespace RPSStore.Views
         {
             InitializeComponent();
         }
+
+        private void OnGenderRadioButtonCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+
+        }
     }
 }
