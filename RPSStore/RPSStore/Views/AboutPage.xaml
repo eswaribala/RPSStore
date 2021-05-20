@@ -9,21 +9,44 @@
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">DarkSeaGreen</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
-        <CarouselView ItemsSource="{Binding Categories}" IndicatorView="indicatorView">
+    <StackLayout>
+        <TableView Intent="Menu">
+            <TableRoot>
+                <TableSection>
+
+
+                    <TextCell Text="Latest Arrival"
+                          Detail="Set multiple properties"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type views:LatestArrival}" />
+                    <!--<TextCell Text="Embedded Expander demo"
+                          Detail="Expander in an Expander"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type views:EmbeddedExpanderPage}" />
+                -->
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+    </StackLayout>
+
+
+    <StackLayout>
+        <CarouselView x:Name="CatView" IndicatorView="indicatorView">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
                         <Frame HasShadow="True"
-                               BorderColor="Beige"
-                               CornerRadius="5"
-                               Margin="50"
+                               BorderColor="Green"
+                               BackgroundColor="Lavender"
+                               CornerRadius="5"                            
                                HeightRequest="300"
                                HorizontalOptions="Center"
                                VerticalOptions="CenterAndExpand">
@@ -59,5 +82,5 @@
         </IndicatorView>
 
     </StackLayout>
-
+    </StackLayout>
 </ContentPage>

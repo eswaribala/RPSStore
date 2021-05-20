@@ -13,7 +13,7 @@ namespace RPSStore.Views
     public partial class AboutPage : ContentPage
     {
         public ICommand NavigateCommand { get; private set; }
-        
+        public CarouselViewModel VM;
         public AboutPage()
         {
             InitializeComponent();
@@ -24,8 +24,9 @@ namespace RPSStore.Views
                    Page page = (Page)Activator.CreateInstance(pageType);
                    await Navigation.PushAsync(page);
                });
-            var vm = new CarouselViewModel();
-            BindingContext = vm;
+           // VM = new CarouselViewModel();
+            BindingContext = this;
+            CatView.ItemsSource = new CarouselViewModel().Categories;
         }
 
         
