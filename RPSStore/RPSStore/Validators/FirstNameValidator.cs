@@ -25,7 +25,7 @@ namespace RPSStore.Validators
         {
             bool IsValid = false;
             IsValid=Regex.IsMatch(e.NewTextValue, firstNameRegEx);
-            ((Entry)sender).TextColor = IsValid ? Color.Default : Color.Red;
+            ((Entry)sender).BackgroundColor = IsValid ? Color.Default : Color.Red;
         }
     }
 }

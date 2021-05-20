@@ -71,7 +71,12 @@
 
                 </Grid>
             </StackLayout>
-            <Button Text="Add Contact" Clicked="Contact_Clicked" HorizontalOptions="Center" BackgroundColor="Green" TextColor="White"></Button> 
+            <Button Text="Add Contact" IsVisible="false" Clicked="Contact_Clicked" HorizontalOptions="Center" BackgroundColor="Green" TextColor="White">
+                <Button.Behaviors>
+                    
+                </Button.Behaviors>
+                
+            </Button> 
 
         </StackLayout>
     </ContentPage.Content>
