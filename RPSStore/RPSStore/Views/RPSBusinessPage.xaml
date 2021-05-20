@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:RPSStore.Validators"
              x:Class="RPSStore.Views.RPSBusinessPage">
     <ContentPage.Resources>
     <Style Class="ContactStyle" TargetType="Label">
@@ -12,7 +12,12 @@
     </ContentPage.Resources>         
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="FirstName" Placeholder="First Name" VerticalOptions="Center"></Entry>
+            <Entry x:Name="FirstName" Placeholder="First Name"  VerticalOptions="Center">
+                <Entry.Behaviors>
+                    <local:FirstNameValidator/>
+                </Entry.Behaviors>
+                
+            </Entry>
             <Entry x:Name="LastName" Placeholder="Last Name" VerticalOptions="Center"></Entry>
             <Label Text="Select Gender" StyleClass="ContactStyle" />
             <RadioButton Content="Female"

@@ -40,7 +40,8 @@ namespace RPSStore.Views
             modes.Add(Email);
             modes.Add(WhatsApp);
             modes.Add(FaceBook);
-            DisplayAlert("Received", contact.Gender, "OK");
+            contact.ContactModes = modes;
+            DisplayAlert("Received", contact.ContactModes.Count.ToString(), "OK");
 
         }
 
@@ -63,5 +64,7 @@ namespace RPSStore.Views
         {
             FaceBook = true;
         }
+
+       
     }
 }
