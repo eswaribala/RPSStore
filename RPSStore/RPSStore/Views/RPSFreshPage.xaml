@@ -1,12 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:RPSStore.ViewModels"
              x:Class="RPSStore.Views.RPSFreshPage">
+    <ContentPage.BindingContext>
+        <local:EmailViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <CollectionView ItemsSource="{Binding Emails}"
+                        ItemsLayout="VerticalGrid, 1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="0"></BoxView>
+                            <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="1"></BoxView>
+
+                            <BoxView BackgroundColor="Lavender" Grid.Row="1" Grid.Column="0"></BoxView>
+
+                            <BoxView BackgroundColor="Lavender" Grid.Row="1" Grid.Column="1"></BoxView>
+                            <Label Text="{Binding From}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="0" Grid.Column="0"></Label>
+                            <Label Text="{Binding To}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="0" Grid.Column="1"></Label>
+                            <Label Text="{Binding Subject}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="1" Grid.Column="0"></Label>
+                            <Label Text="{Binding Body}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="1" Grid.Column="1"></Label>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

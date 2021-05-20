@@ -16,12 +16,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
-    <StackLayout>
-        <TableView Intent="Menu">
+    
+        <TableView Intent="Menu" VerticalOptions="Start" HeightRequest="75">
             <TableRoot>
                 <TableSection>
-
-
                     <TextCell Text="Latest Arrival"
                           Detail="Set multiple properties"
                           Command="{Binding NavigateCommand}"
@@ -35,11 +33,11 @@
             </TableRoot>
         </TableView>
 
-    </StackLayout>
+    
 
 
     <StackLayout>
-        <CarouselView x:Name="CatView" IndicatorView="indicatorView">
+        <CarouselView x:Name="CatView" IndicatorView="indicatorView" VerticalOptions="Start">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
@@ -47,9 +45,9 @@
                                BorderColor="Green"
                                BackgroundColor="Lavender"
                                CornerRadius="5"                            
-                               HeightRequest="300"
+                              HeightRequest="300"
                                HorizontalOptions="Center"
-                               VerticalOptions="CenterAndExpand">
+                               VerticalOptions="Start">
                             <StackLayout>
                                 <Label Text="{Binding Name}" 
                                        FontAttributes="Bold"
@@ -74,7 +72,7 @@
         </CarouselView>
         <IndicatorView x:Name="indicatorView"
                        MaximumVisible="6"
-                       Margin="0,0,0,40"
+                       Margin="0,0,0,140"
                        IndicatorColor="LightGray"
                        SelectedIndicatorColor="DarkGray"
                        HorizontalOptions="Center">
