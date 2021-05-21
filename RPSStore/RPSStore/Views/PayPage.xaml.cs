@@ -1,5 +1,8 @@
-﻿using System;
+﻿using RPSStore.Models;
+using RPSStore.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,8 +19,15 @@ namespace RPSStore.Views
         public PayPage()
         {
             InitializeComponent();
+            LoadData();
         }
 
+        private async void LoadData()
+        {
+            ObservableCollection<Photo> Photos =
+                await new APIAccess().GetPhotos();
+            
+        }
         private async void Call_Clicked(object sender, EventArgs e)
         {
             bool status = true;
