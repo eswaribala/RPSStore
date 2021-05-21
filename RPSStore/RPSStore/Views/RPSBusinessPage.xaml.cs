@@ -29,12 +29,14 @@ namespace RPSStore.Views
             RadioButton radioButton = sender as RadioButton;
             //Gender = radioButton.Content.ToString();
         }
-        /*
+        
         private void Contact_Clicked(object sender, EventArgs e)
         {
+            
             Contact contact = new Contact();
             contact.FirstName = FirstName.Text;
             contact.LastName = LastName.Text;
+            /*
             contact.Gender = Gender;
             List<Boolean> modes = new List<Boolean>();
             modes.Add(PhoneNo);
@@ -42,10 +44,11 @@ namespace RPSStore.Views
             modes.Add(WhatsApp);
             modes.Add(FaceBook);
             contact.ContactModes = modes;
-            DisplayAlert("Received", contact.ContactModes.Count.ToString(), "OK");
+            */
+            DisplayAlert("Received",contact.FirstName.ToString() , "OK");
 
         }
-        */
+        
         private void phoneNoCheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
            // PhoneNo = true;
@@ -66,6 +69,9 @@ namespace RPSStore.Views
             //FaceBook = true;
         }
 
-       
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

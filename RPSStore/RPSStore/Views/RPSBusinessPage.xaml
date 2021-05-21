@@ -17,7 +17,7 @@
         <StackLayout>
             <Label Text="Login" HorizontalOptions="Center" FontSize="50"/>
             <!--  First Name  -->
-            <Entry
+            <Entry x:Name="FirstName"
                 Placeholder="First Name"
                 HorizontalOptions="Fill"
                 
@@ -33,6 +33,7 @@
             
             <!--  Last Name  -->
             <Entry
+                x:Name="LastName"
                 Placeholder="Last Name"
                 HorizontalOptions="Fill"
                
@@ -97,7 +98,7 @@
 
                 </Grid>
             </StackLayout>
-            <Button Text="Add Contact"  HorizontalOptions="Center" BackgroundColor="Green" TextColor="White">
+            <Button Text="Add Contact"  HorizontalOptions="Center" Clicked="Contact_Clicked" BackgroundColor="Green" TextColor="White">
                 <Button.Triggers>
                     <DataTrigger TargetType="Button"
                        Binding="{Binding Source={x:Reference FirstNameValidator},
