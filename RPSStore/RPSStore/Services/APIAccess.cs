@@ -9,7 +9,8 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace RPSStore.Services
 {
     public class APIAccess
@@ -17,7 +18,7 @@ namespace RPSStore.Services
         private HttpClient httpClient;
         private WebClient webClient;
         public ObservableCollection<Photo> Photos { get; set; }
-        public int ProgressValue { get; set; }
+        public ObservableCollection<int> ProgressValue { get; set; }
         private String WebUrl { get; set; }
         private DateTime BeforeAccess { get; set; }
         private DateTime AfterAccess { get; set; }
@@ -28,7 +29,7 @@ namespace RPSStore.Services
         public APIAccess()
         {
             this.httpClient = new HttpClient();
-            
+            this.ProgressValue = new ObservableCollection<int>();
 
         }
 
@@ -73,8 +74,9 @@ namespace RPSStore.Services
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-           ProgressValue=  e.ProgressPercentage;
-            Console.WriteLine("Progress Value" + ProgressValue); 
+            
+            ProgressValue.Add(e.ProgressPercentage);
+            Console.WriteLine("Progress Value" + ProgressValue.Count); 
         }
     }
 }
