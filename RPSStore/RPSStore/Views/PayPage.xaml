@@ -15,7 +15,7 @@
             <StackLayout>
                 <ProgressBar x:Name="progressbar"   WidthRequest="500"
                      VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="Fill" BackgroundColor="green" ></ProgressBar>
+                     HorizontalOptions="Fill" BackgroundColor="Gray" ></ProgressBar>
                 <Button Text="Download"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"

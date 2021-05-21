@@ -80,7 +80,7 @@ namespace RPSStore.Views
         {
            
             progressbar.Progress = ProgressValue.Count;
-            await progressbar.ProgressTo(ProgressValue.Count, 750, Easing.Linear);
+            await progressbar.ProgressTo(ProgressValue.Count, 100, Easing.Linear);
 
             /*
             
