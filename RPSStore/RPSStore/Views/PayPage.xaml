@@ -8,8 +8,19 @@
 
     <ContentPage.Content>
         <StackLayout>
+        <StackLayout>
             <Entry x:Name="PhoneNo" Placeholder="999-999-9999"/>
             <Button Text="Call" Clicked="Call_Clicked"/>
+        </StackLayout>
+            <StackLayout>
+                <ProgressBar x:Name="progressbar" WidthRequest="500"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="Fill" ></ProgressBar>
+                <Button Text="Download"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Clicked="Button_Clicked" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
