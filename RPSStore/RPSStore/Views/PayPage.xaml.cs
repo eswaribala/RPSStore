@@ -16,12 +16,13 @@ namespace RPSStore.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PayPage : ContentPage
     {
+        //float progress = 0f;
+
         public ObservableCollection<int> ProgressValue { get; set; }
         public ObservableCollection<Photo> Photos { get; set; }
         public PayPage()
         {
             InitializeComponent();
-           
             LoadData();
         }
 
@@ -74,14 +75,32 @@ namespace RPSStore.Views
             }
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
+
         {
-            progressbar.Progress = ProgressValue[0];
+           
+            progressbar.Progress = ProgressValue.Count;
+            await progressbar.ProgressTo(ProgressValue.Count, 750, Easing.Linear);
+
+            /*
+            
+            if (ProgressValue.Count > 0)
+            {
+                var list = new List<int>(ProgressValue);
+                foreach (int value in list)
+                {
+                    if (value > 0)
+                    {
+                        progressbar.Progress = value;
+                      
+                    }
+                    }
+            }
+            */
             // directly set the new progress value
-            //defaultProgressBar.Progress = progress;
 
             // animate to the new value over 750 milliseconds using Linear easing
-           // await styledProgressBar.ProgressTo(progress, 750, Easing.Linear);
+
 
         }
     }
