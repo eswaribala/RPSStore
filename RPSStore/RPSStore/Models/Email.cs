@@ -6,6 +6,7 @@ namespace RPSStore.Models
 {
     public class Email
     {
+        public bool IsChecked { get; set; }
         public String From { get; set; }
         public String To { get; set; }
         public String Subject { get; set; }

@@ -1,16 +1,18 @@
-﻿using System;
+﻿using Prism.Behaviors;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Xamarin.Forms;
 using System.Text.RegularExpressions;
+using Xamarin.Forms;
+
 namespace RPSStore.Validators
 {
-   public class FirstNameValidator:Behavior<Entry>
+    public class EntryValidationBehavior:BehaviorBase<Entry>
     {
         const String firstNameRegEx = @"^[A-Za-z]{5,50}$";
         public static readonly BindableProperty IsValidProperty =
-           BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(EntryValidationBehavior), false, BindingMode.OneWay);
-
+            BindableProperty.Create(nameof(IsValid),typeof(bool),typeof(EntryValidationBehavior),false,BindingMode.OneWay);
+    
         public bool IsValid
         {
             get
@@ -21,7 +23,7 @@ namespace RPSStore.Validators
             }
             set
             {
-                SetValue(IsValidProperty, value);
+                SetValue(IsValidProperty,value);
             }
         }
 
@@ -30,19 +32,21 @@ namespace RPSStore.Validators
             bindable.TextChanged += HandleTextChanged;
             base.OnAttachedTo(bindable);
         }
-      
+       
         protected override void OnDetachingFrom(Entry bindable)
         {
             bindable.TextChanged += HandleTextChanged;
             base.OnDetachingFrom(bindable);
         }
-        private void HandleTextChanged(object sender, TextChangedEventArgs e)
+
+        public void HandleTextChanged(Object sender,TextChangedEventArgs e)
         {
-            // IsValid = false;
-            var isValid=Regex.IsMatch(e.NewTextValue, firstNameRegEx);
+            // var isValid = !string.IsNullOrWhiteSpace(e.NewTextValue);
+            var isValid = Regex.IsMatch(e.NewTextValue, firstNameRegEx);
             IsValid = isValid;
             ((Entry)sender).BackgroundColor = IsValid ? Color.Default : Color.Red;
-        
+
         }
+
     }
 }

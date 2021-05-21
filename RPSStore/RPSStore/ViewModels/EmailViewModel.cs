@@ -19,6 +19,7 @@ namespace RPSStore.ViewModels
        
         readonly Random random;
         bool isRefreshing;
+        bool isChecked;
         public EmailViewModel()
         {
 
@@ -37,10 +38,19 @@ namespace RPSStore.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        public bool IsChecked
+        {
+            get { return isChecked; }
+            set
+            {
+                isChecked= value;
+                OnPropertyChanged();
+            }
+        }
         void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            isChecked = true; 
         }
 
         public ObservableCollection<Email> Emails { get; private set; }
@@ -54,6 +64,7 @@ namespace RPSStore.ViewModels
             await Task.Delay(TimeSpan.FromSeconds(RefreshDuration));
             AddItems();
             IsRefreshing = false;
+            IsChecked = true;
         }
 
         private void AddItems()
@@ -62,7 +73,7 @@ namespace RPSStore.ViewModels
             {
                 Emails.Add(new Email
                 {
-                    From="From"+i,To="To"+i,Subject="Subject"+i,Body="Body"+i
+                    From="From"+i,To="To"+i,Subject="Subject"+i,Body="Body"+i,IsChecked=false
 
                 });
             }

@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:RPSStore.Validators"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+        
+             xmlns:local1="clr-namespace:RPSStore.ViewModels" xmlns:local="clr-namespace:RPSStore" xmlns:behaviours="clr-namespace:RPSStore.Validators"
              x:Class="RPSStore.Views.RPSBusinessPage">
     <ContentPage.Resources>
     <Style Class="ContactStyle" TargetType="Label">
@@ -9,16 +11,40 @@
             <Setter Property="FontAttributes" Value="Bold" ></Setter>
           
         </Style>
-    </ContentPage.Resources>         
+      </ContentPage.Resources>
+     
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="FirstName" Placeholder="First Name"  VerticalOptions="Center">
-                <Entry.Behaviors>
-                    <local:FirstNameValidator/>
-                </Entry.Behaviors>
+            <Label Text="Login" HorizontalOptions="Center" FontSize="50"/>
+            <!--  First Name  -->
+            <Entry
+                Placeholder="First Name"
+                HorizontalOptions="Fill"
                 
+                VerticalOptions="Center">
+
+                <Entry.Behaviors>
+                    <behaviours:FirstNameValidator x:Name="FirstNameValidator">
+
+                    </behaviours:FirstNameValidator>
+                </Entry.Behaviors>
+
+            </Entry> 
+            
+            <!--  Last Name  -->
+            <Entry
+                Placeholder="Last Name"
+                HorizontalOptions="Fill"
+               
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Entry.Behaviors>
+                    <behaviours:EntryValidationBehavior x:Name="LastNameValidator">
+
+                    </behaviours:EntryValidationBehavior>
+                </Entry.Behaviors>
             </Entry>
-            <Entry x:Name="LastName" Placeholder="Last Name" VerticalOptions="Center"></Entry>
+            
             <Label Text="Select Gender" StyleClass="ContactStyle" />
             <RadioButton Content="Female"
                      GroupName="gender"
@@ -71,11 +97,34 @@
 
                 </Grid>
             </StackLayout>
-            <Button Text="Add Contact" IsVisible="false" Clicked="Contact_Clicked" HorizontalOptions="Center" BackgroundColor="Green" TextColor="White">
-                <Button.Behaviors>
+            <Button Text="Add Contact"  HorizontalOptions="Center" BackgroundColor="Green" TextColor="White">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button"
+                       Binding="{Binding Source={x:Reference FirstNameValidator},
+                                           Path=IsValid}" Value="False">
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger>
+                    <!--Only at end enabled-->
+                    <DataTrigger TargetType="Button"
+                       Binding="{Binding Source={x:Reference FirstNameValidator},
+                                           Path=IsValid}" Value="True">
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger>
                     
-                </Button.Behaviors>
-                
+                    <DataTrigger TargetType="Button"
+                       Binding="{Binding Source={x:Reference LastNameValidator},
+                                           Path=IsValid}" Value="False">
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger>
+
+                    <DataTrigger TargetType="Button"
+                       Binding="{Binding Source={x:Reference LastNameValidator},
+                                           Path=IsValid}" Value="True">
+                        <Setter Property="IsEnabled" Value="True" />
+                    </DataTrigger>
+
+                </Button.Triggers>
+
             </Button> 
 
         </StackLayout>

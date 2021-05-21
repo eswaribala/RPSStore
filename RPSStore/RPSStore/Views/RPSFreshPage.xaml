@@ -5,38 +5,85 @@
     <ContentPage.BindingContext>
         <local:EmailViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <DataTemplate x:Key="EmailItemTemplate">
+            <Frame x:Name="FrameTypes"
+                        BorderColor="Green"
+                        HasShadow="False"
+                        WidthRequest="500">
+                <Frame.GestureRecognizers>
+
+                    <TapGestureRecognizer CommandParameter="{Binding IsChecked}" Tapped="TapGestureRecognizer_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="75"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="75"></ColumnDefinition>
+                        <ColumnDefinition Width="125"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="0"></BoxView>
+                    <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="1"></BoxView>
+
+                    <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="2"></BoxView>
+
+                    <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="3"></BoxView>
+                    <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="4"></BoxView>
+                    <CheckBox x:Name="chkBox"  IsChecked="{Binding IsChecked , Mode=TwoWay}"
+                  Grid.Column="0" Grid.Row="0"    HorizontalOptions="End" 
+                  VerticalOptions="Center" />
+
+                    <Label Text="{Binding From}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="0" Grid.Column="1"></Label>
+                    <Label Text="{Binding To}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="0" Grid.Column="2"></Label>
+                    <Label Text="{Binding Subject}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="0" Grid.Column="3"></Label>
+                    <Label Text="{Binding Body}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="0" Grid.Column="4"></Label>
+
+                </Grid>
+            </Frame>
+        </DataTemplate>
+    </ContentPage.Resources>    
     <ContentPage.Content>
-        <StackLayout>
-            <CollectionView ItemsSource="{Binding Emails}"
-                        ItemsLayout="VerticalGrid, 1">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="0"></BoxView>
-                            <BoxView BackgroundColor="Lavender" Grid.Row="0" Grid.Column="1"></BoxView>
+        <StackLayout Margin="2">
+            <Label Text="Admin Inbox"
+               FontSize="18"
+               FontAttributes="Bold"
+               HorizontalOptions="Start" TextColor="Green" />
+            <Label Text="Pull the items down to refresh the ScrollView." />
+            <Label Text="{Binding Emails.Count, StringFormat='Number of items: {0}'}" />
+            <Button Text="SelectAll" TextColor="White" BackgroundColor="Green" Clicked="Button_Clicked"></Button>
+            <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                     RefreshColor="Red"
+                     Command="{Binding RefreshCommand}" >
+                <ScrollView  >
+                    <!--
+                    <Frame x:Name="FrameTypes"
+                        BorderColor="Green"
+                        HasShadow="False"
+                        WidthRequest="600">
+                        <Frame.GestureRecognizers>
 
-                            <BoxView BackgroundColor="Lavender" Grid.Row="1" Grid.Column="0"></BoxView>
-
-                            <BoxView BackgroundColor="Lavender" Grid.Row="1" Grid.Column="1"></BoxView>
-                            <Label Text="{Binding From}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="0" Grid.Column="0"></Label>
-                            <Label Text="{Binding To}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="0" Grid.Column="1"></Label>
-                            <Label Text="{Binding Subject}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="1" Grid.Column="0"></Label>
-                            <Label Text="{Binding Body}" VerticalOptions="Center" TextColor="Blue"  Grid.Row="1" Grid.Column="1"></Label>
-
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
+                            <TapGestureRecognizer CommandParameter="{Binding IsChecked}" Tapped="TapGestureRecognizerNew_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        -->
+                        
+                        
+                        <FlexLayout x:Name="EmailFlex" Direction="Row"
+                                
+                            Wrap="Wrap"
+                            AlignItems="Center"
+                            AlignContent="Center"
+                            BindableLayout.ItemsSource="{Binding Emails}"
+                            BindableLayout.ItemTemplate="{StaticResource EmailItemTemplate}" />
+<!--                    </Frame> -->
+                </ScrollView>
+            </RefreshView>
         </StackLayout>
+
+
+
     </ContentPage.Content>
 </ContentPage>
