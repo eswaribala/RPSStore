@@ -1,5 +1,4 @@
-﻿using Prism.Behaviors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -7,7 +6,7 @@ using Xamarin.Forms;
 
 namespace RPSStore.Validators
 {
-    public class EntryValidationBehavior:BehaviorBase<Entry>
+    public class EntryValidationBehavior:Behavior<Entry>
     {
         const String firstNameRegEx = @"^[A-Za-z]{5,50}$";
         public static readonly BindableProperty IsValidProperty =
